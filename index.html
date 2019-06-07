@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/prism.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Bohemian Rhapsody Challenge</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center;">Bohemian Rhapsody Challenge</h1>
+      <section>
+        <h3>What is this?</h3>
+        <p>
+          I was watching a British quiz show on YouTube the other day called 'Pointless Celebrities' which was the
+          inspiration for this project (you can see it
+          <a href="https://www.youtube.com/watch?v=R6HlbOrjgac" target="_new">here</a> - the 'Rock Lyrics' quiz starts
+          @21:09).
+        </p>
+        <p>
+          The object of this quiz is to name as many words in the song 'Bohemian Rhapsody' by
+          <a
+            href="https://www.google.com/search?q=Queen+(band)&stick=H4sIAAAAAAAAAONgVuLQz9U3SMo2LFjEyhNYmpqap6CRlJiXogkAEwyIoBsAAAA&sa=X&ved=2ahUKEwjZuqGnq9biAhWs1VkKHT4ZBDQQMTAAegQIChAF"
+            target="_new"
+            >Queen</a
+          >
+          of six or more letters. That got me thinking that someone had to get the original lyrics, eliminate all the
+          words with less than six letters and remove any duplicates leaving a short list of all words of six or more
+          letters. We would then have a definitive list which we can use to judge the results of the contestant's
+          answers.
+        </p>
+        <p>
+          That got me thinking... I could use javascript to massage the text and output a list of all the words containg
+          six or more letters!
+        </p>
+        <p>I had a lot of fun figuring this out so I decided to document what I did.</p>
+      </section>
+      <section>
+        <h4>Step 1</h4>
+        <ol>
+          <li>
+            Get the lyrics:
+            <a
+              href="// https://www.google.com/search?q=bohemian+rhapsody+lyrics&oq=boh&aqs=chrome.0.69i59j69i57j46j0j46j0.2260j0j7&sourceid=chrome&ie=UTF-8"
+              target="_new"
+              >Google</a
+            >
+            They are listed below as well.
+          </li>
+          <li>
+            Convert the text to a javascript array of strings where each line is a separate string. I used
+            <a href="https://codepen.io/franciskim/pen/eNjrpR?editors=1111" target="_new">this</a> online tool.
+          </li>
+        </ol>
+        <div class="lyrics">
+          <div class="strof">
+            <span>Is this the real life?</span><br />
+            <span>Is this just fantasy?</span><br />
+            <span>Caught in a landslide</span><br />
+            <span>No escape from reality</span><br />
+            <span>Open your eyes</span><br />
+            <span>Look up to the skies and see</span><br />
+            <span>I'm just a poor boy, I need no sympathy</span><br />
+            <span>Because I'm easy come, easy go</span><br />
+            <span>A little high, little low</span><br />
+            <span>Anyway the wind blows, doesn't really matter to me, to me</span><br />
+          </div>
+          <div class="strof">
+            <span>Mama, just killed a man</span><br />
+            <span>Put a gun against his head</span><br />
+            <span>Pulled my trigger, now he's dead</span><br />
+            <span>Mama, life had just begun</span><br />
+            <span>But now I've gone and thrown it all away</span><br />
+            <span>Mama, oh oh </span><br />
+            <span>Didn't mean to make you cry</span><br />
+            <span>If I'm not back again this time tomorrow</span><br />
+            <span>Carry on, carry on, as if nothing really matters</span><br />
+          </div>
+          <div class="strof">
+            <span>Too late, my time has come</span><br />
+            <span>Sends shivers down my spine</span><br />
+            <span>Body's aching all the time</span><br />
+            <span>Goodbye everybody I've got to go</span><br />
+            <span>Gotta leave you all behind and face the truth</span><br />
+            <span>Mama, oh oh (anyway the wind blows)</span><br />
+            <span>I don't want to die</span><br />
+            <span>Sometimes wish I'd never been born at all</span><br />
+          </div>
+          <div class="strof">
+            <span>I see a little silhouetto of a man</span><br />
+            <span>Scaramouch, Scaramouch will you do the Fandango</span><br />
+            <span>Thunderbolt and lightning very very frightening me</span><br />
+            <span>Gallileo, Gallileo, Gallileo, Gallileo, Gallileo, figaro, magnifico</span><br />
+          </div>
+          <div class="strof">
+            <span>I'm just a poor boy and nobody loves me</span><br />
+            <span>He's just a poor boy from a poor family</span><br />
+            <span>Spare him his life from this monstrosity</span><br />
+            <span>Easy come easy go will you let me go</span><br />
+            <span>Bismillah, no we will not let you go, let him go</span><br />
+            <span>Bismillah, we will not let you go, let him go</span><br />
+            <span>Bismillah, we will not let you go, let me go</span><br />
+            <span>(Will not let you go) let me go (never, never let you go) let me go (never let me go)</span><br />
+            <span>Oh oh no, no, no, no, no, no, no</span><br />
+            <span>Oh mama mia, mama mia, mama mia let me go</span><br />
+            <span>Beelzebub has a devil put aside for me for me for me</span><br />
+          </div>
+          <div class="strof">
+            <span>So you think you can stop me and spit in my eye</span><br />
+            <span>So you think you can love me and leave me to die</span><br />
+            <span>Oh baby can't do this to me baby</span><br />
+            <span>Just gotta get out just gotta get right outta here</span><br />
+          </div>
+          <div class="strof">
+            <span>Oh oh oh yeah, oh oh yeah</span><br />
+            <span>Nothing really matters</span><br />
+            <span>Anyone can see</span><br />
+            <span>Nothing really matters </span><br />
+            <span>Nothing really matters to me</span><br />
+            <span>Anyway the wind blows</span><br />
+          </div>
+          <p class="credits">
+            Songwriters: Freddie Mercury<br />Bohemian Rhapsody lyrics © Sony/ATV Music Publishing LLC
+          </p>
+        </div>
+        <br />
+        <p>Create a constant called 'lyrics' and set it to the output of <strong>Step 1.2</strong>.</p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const lyrics = [ ... array of strings ... ]
+        </code></pre>
+        <div class="left snippet-header">console.log(lyrics);</div>
+        <pre><code class="language-js">
+["Is this the real life?", "Is this just fantasy?", "Caught in a landslide", "No escape from reality", "Open your eyes", "Look up to the skies and see", "I'm just a poor boy, I need no sympathy", "Because I'm easy come, easy go", "A little high, little low", "Anyway the wind blows, doesn't really matter to me, to me", "Mama, just killed a man", "Put a gun against his head", "Pulled my trigger, now he's dead", "Mama, life had just begun", "But now I've gone and thrown it all away", "Mama, oh oh", "Didn't mean to make you cry", "If I'm not back again this time tomorrow", "Carry on, carry on, as if nothing really matters", "Too late, my time has come", "Sends shivers down my spine", "Body's aching all the time", "Goodbye everybody I've got to go", "Gotta leave you all behind and face the truth", "Mama, oh oh(anyway the wind blows)", "I don't want to die", "Sometimes wish I'd never been born at all", "I see a little silhouetto of a man", "Scaramouch, Scaramouch will you do the Fandango", "Thunderbolt and lightning very very frightening me", "Gallileo, Gallileo, Gallileo, Gallileo, Gallileo, figaro, magnifico", "I'm just a poor boy and nobody loves me", "He's just a poor boy from a poor family", "Spare him his life from this monstrosity", "Easy come easy go will you let me go", "Bismillah, no we will not let you go, let him go", "Bismillah, we will not let you go, let him go", "Bismillah, we will not let you go, let me go", "(Will not let you go) let me go (never, never let you go) let me go (never let me go)", "Oh oh no, no, no, no, no, no, no", "Oh mama mia, mama mia, mama mia let me go", "Beelzebub has a devil put aside for me for me for me", "So you think you can stop me and spit in my eye", "So you think you can love me and leave me to die", "Oh baby can't do this to me baby", "Just gotta get out just gotta get right outta here", "Oh oh oh yeah, oh oh yeah", "Nothing really matters", "Anyone can see", "Nothing really matters", "Nothing really matters to me", "Anyway the wind blows"]
+        </code></pre>
+      </section>
+      <section>
+        <h4>Step 2 - Convert the array of strings to a single string</h4>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const singleWords = lyrics.toString();
+        </code></pre>
+        <div class="left snippet-header">console.log(singleWords);</div>
+        <pre><code class="language-js">
+Is this the real life?,Is this just fantasy?,Caught in a landslide,No escape from reality,Open your eyes,Look up to the skies and see,I'm just a poor boy, I need no sympathy,Because I'm easy come, easy go,A little high, little low,Anyway the wind blows, doesn't really matter to me, to me,Mama, just killed a man,Put a gun against his head,Pulled my trigger, now he's dead,Mama, life had just begun,But now I've gone and thrown it all away,Mama, oh oh,Didn't mean to make you cry,If I'm not back again this time tomorrow,Carry on, carry on, as if nothing really matters,Too late, my time has come,Sends shivers down my spine,Body's aching all the time,Goodbye everybody I've got to go,Gotta leave you all behind and face the truth,Mama, oh oh(anyway the wind blows),I don't want to die,Sometimes wish I'd never been born at all,I see a little silhouetto of a man,Scaramouch, Scaramouch will you do the Fandango,Thunderbolt and lightning very very frightening me,Gallileo, Gallileo, Gallileo, Gallileo, Gallileo, figaro, magnifico,I'm just a poor boy and nobody loves me,He's just a poor boy from a poor family,Spare him his life from this monstrosity,Easy come easy go will you let me go,Bismillah, no we will not let you go, let him go,Bismillah, we will not let you go, let him go,Bismillah, we will not let you go, let me go,(Will not let you go) let me go (never, never let you go) let me go (never let me go),Oh oh no, no, no, no, no, no, no,Oh mama mia, mama mia, mama mia let me go,Beelzebub has a devil put aside for me for me for me,So you think you can stop me and spit in my eye,So you think you can love me and leave me to die,Oh baby can't do this to me baby,Just gotta get out just gotta get right outta here,Oh oh oh yeah, oh oh yeah,Nothing really matters,Anyone can see,Nothing really matters,Nothing really matters to me,Anyway the wind blows
+        </code></pre>
+      </section>
+      <section>
+        <h4>Step 3 - remove unwanted characters</h4>
+        <p>
+          Now we need to remove any characters from the string that aren't letters except the apostrophe in
+          contractions and of course the space between the words - we need that. Then we can convert the cleaned up
+          string to an array of single words.<br />Total word count: 378 words.
+        </p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const cleanText = singleWords.replace(/[^a-zA-Z' ]/g, ' ');
+const str = cleanText.toString();
+const words = str.split(/\s+/);
+        </code></pre>
+        <div class="left snippet-header">console.log(words);</div>
+        <pre><code class="language-js">
+(378) ["Is", "this", "the", "real", "life", "Is", "this", "just", "fantasy", "Caught", "in", "a", "landslide", "No", "escape", "from", "reality", "Open", "your", "eyes", "Look", "up", "to", "the", "skies", "and", "see", "I'm", "just", "a", "poor", "boy", "I", "need", "no", "sympathy", "Because", "I'm", "easy", "come", "easy", "go", "A", "little", "high", "little", "low", "Anyway", "the", "wind", "blows", "doesn't", "really", "matter", "to", "me", "to", "me", "Mama", "just", "killed", "a", "man", "Put", "a", "gun", "against", "his", "head", "Pulled", "my", "trigger", "now", "he's", "dead", "Mama", "life", "had", "just", "begun", "But", "now", "I've", "gone", "and", "thrown", "it", "all", "away", "Mama", "oh", "oh", "Didn't", "mean", "to", "make", "you", "cry", "If", "I'm", …]
+        </code></pre>
+      </section>
+      <section>
+        <h4>Step 4 - remove duplicated words</h4>
+        <p>
+          It's time to get all of the unique words. One way of doing this is to is to use the 'Set' object which lets
+          you store unique values of any type. 'Set' will automatically remove any duplicates for us.<br />Total
+          unique word count: 168 words. 210 duplicated words have been removed from the array.<br />
+          <a href="https://wsvincent.com/javascript-remove-duplicates-array/" target="_new">Credit</a>
+        </p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+let unique = [...new Set(words)];
+        </code></pre>
+        <div class="left snippet-header">console.log(unique);</div>
+        <pre><code class="language-js">
+(168) ["Is", "this", "the", "real", "life", "just", "fantasy", "Caught", "in", "a", "landslide", "No", "escape", "from", "reality", "Open", "your", "eyes", "Look", "up", "to", "skies", "and", "see", "I'm", "poor", "boy", "I", "need", "no", "sympathy", "Because", "easy", "come", "go", "A", "little", "high", "low", "Anyway", "wind", "blows", "doesn't", "really", "matter", "me", "Mama", "killed", "man", "Put", "gun", "against", "his", "head", "Pulled", "my", "trigger", "now", "he's", "dead", "had", "begun", "But", "I've", "gone", "thrown", "it", "all", "away", "oh", "Didn't", "mean", "make", "you", "cry", "If", "not", "back", "again", "time", "tomorrow", "Carry", "on", "carry", "as", "if", "nothing", "matters", "Too", "late", "has", "Sends", "shivers", "down", "spine", "Body's", "aching", "Goodbye", "everybody", "got", …]
+        </code></pre>
+      </section>
+      <section>
+        <h4>Step 5 - create a new array of unique words with six or more letters</h4>
+        <p>
+          So now we have an array of 168 unique words of varying length but we only need the words that have six or more
+          letters. A simple 'for' loop will help us find those words. Create a new array called sixOrMore and push to
+          that array all of the words that have six or more letters.<br />The result will be 45 unique words of six
+          letters or more.
+        </p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const sixOrMore = [];
+for (var i = 0; i < unique.length; i++) {
+  if (unique[i].length >= 6) {
+    sixOrMore.push(unique[i]);
+  }
+}
+          </code></pre>
+        <div class="left snippet-header">console.log(sixOrMore);</div>
+        <pre><code class="language-js">
+(45) ["fantasy", "Caught", "landslide", "escape", "reality", "sympathy", "Because", "little", "Anyway", "doesn't", "really", "matter", "killed", "against", "Pulled", "trigger", "thrown", "Didn't", "tomorrow", "nothing", "matters", "shivers", "Body's", "aching", "Goodbye", "everybody", "behind", "anyway", "Sometimes", "silhouetto", "Scaramouch", "Fandango", "Thunderbolt", "lightning", "frightening", "Gallileo", "figaro", "magnifico", "nobody", "family", "monstrosity", "Bismillah", "Beelzebub", "Nothing", "Anyone"]
+          </code></pre>
+      </section>
+      <section>
+        <h4>Step 6 - add the list of unique six letter words to your HTML document.</h4>
+        <p>
+          This is one way of showing the results. You could also create an unordered or ordered list for example, but
+          this page is already really long, so I put a 'span' around each word and added them all to a paragraph tag.
+        </p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+var newList = sixOrMore;
+makeList = (array) => {
+  let list = document.createElement('p');
+
+  for (var i = 0; i < array.length; i++) {
+    var item = document.createElement('span');
+    item.appendChild(document.createTextNode(array[i].toLowerCase() + ', '));
+    list.appendChild(item);
+  }
+  return list;
+}
+document.getElementById('result').appendChild(makeList(newList));
+        </code></pre>
+      </section>
+      <section>
+        <h4>Step 7 (optional) - remove the comma after the last word for a cleaner output to HTML</h4>
+        <p>
+          There is a comma after the last word in the HTML. Let's get rid of it.
+        </p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const target = document.getElementById('result').children[0].lastChild.innerHTML;
+const lastWord = target.replace(/[^a-zA-Z]/g, '');
+document.getElementById('result1').children[0].lastChild.innerHTML = lastWord;
+        </code></pre>
+      </section>
+      <section>
+        <h4>Result One</h3>
+        <p>The unique words of six letters or more from the lyrics of 'Bohemian Rhapsody' in order of appearance:</p>
+        <div id="result1" class="results"></div>    
+      </section>
+      <section>
+        <h4>Result Two</h3>
+        <p>The unique words of six letters or more from the lyrics of 'Bohemian Rhapsody' sorted alphabetically:</p>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+sort = () => {
+  newList.sort();
+  document.getElementById('result2').appendChild(makeList(newList));
+  const target = document.getElementById('result2').children[0].lastChild.innerHTML;
+  const lastWord = target.replace(/[^a-zA-Z]/g, '');
+  document.getElementById('result2').children[0].lastChild.innerHTML = lastWord;
+};
+sort();
+        </code></pre>
+        <div style="top: 10px;" id="result2" class="results"></div>    
+      </section>
+      <section>
+        <h4>Result Three</h3>
+        <p>The unique words of six letters or more from the lyrics of 'Bohemian Rhapsody' sorted alphabetically and capitalized:</p>
+        <div class="snippet-header">styles.css</div>
+        <pre><code class="language-css">
+div#result3 {
+  text-transform: capitalize;
+}
+        </code></pre>
+        <div id="result3" class="results"></div>    
+      </section>
+      <section>
+        <h4>Full Script</h4>
+        <div class="snippet-header">script.js</div>
+        <pre><code class="language-js">
+const lyrics = [
+  'Is this the real life?',
+  'Is this just fantasy?',
+  'Caught in a landslide',
+  'No escape from reality',
+  'Open your eyes',
+  'Look up to the skies and see',
+  "I'm just a poor boy, I need no sympathy",
+  "Because I'm easy come, easy go",
+  'A little high, little low',
+  "Anyway the wind blows, doesn't really matter to me, to me",
+  'Mama, just killed a man',
+  'Put a gun against his head',
+  "Pulled my trigger, now he's dead",
+  'Mama, life had just begun',
+  "But now I've gone and thrown it all away",
+  'Mama, oh oh',
+  "Didn't mean to make you cry",
+  "If I'm not back again this time tomorrow",
+  'Carry on, carry on, as if nothing really matters',
+  'Too late, my time has come',
+  'Sends shivers down my spine',
+  "Body's aching all the time",
+  "Goodbye everybody I've got to go",
+  'Gotta leave you all behind and face the truth',
+  'Mama, oh oh(anyway the wind blows)',
+  "I don't want to die",
+  "Sometimes wish I'd never been born at all",
+  'I see a little silhouetto of a man',
+  'Scaramouch, Scaramouch will you do the Fandango',
+  'Thunderbolt and lightning very very frightening me',
+  'Gallileo, Gallileo, Gallileo, Gallileo, Gallileo, figaro, magnifico',
+  "I'm just a poor boy and nobody loves me",
+  "He's just a poor boy from a poor family",
+  'Spare him his life from this monstrosity',
+  'Easy come easy go will you let me go',
+  'Bismillah, no we will not let you go, let him go',
+  'Bismillah, we will not let you go, let him go',
+  'Bismillah, we will not let you go, let me go',
+  '(Will not let you go) let me go (never, never let you go) let me go (never let me go)',
+  'Oh oh no, no, no, no, no, no, no',
+  'Oh mama mia, mama mia, mama mia let me go',
+  'Beelzebub has a devil put aside for me for me for me',
+  'So you think you can stop me and spit in my eye',
+  'So you think you can love me and leave me to die',
+  "Oh baby can't do this to me baby",
+  'Just gotta get out just gotta get right outta here',
+  'Oh oh oh yeah, oh oh yeah',
+  'Nothing really matters',
+  'Anyone can see',
+  'Nothing really matters',
+  'Nothing really matters to me',
+  'Anyway the wind blows'
+];
+  
+getWords = () => {
+  const singleWords = lyrics.toString();
+  const cleanText = singleWords.replace(/[^a-zA-Z' ]/g, ' ');
+  const str = cleanText.toString();
+  const words = str.split(/\s+/);
+  document.getElementById('totalWords').innerHTML = `${words.length}`;
+
+  let unique = [...new Set(words)];
+  const sixOrMore = [];
+  for (let i = 0; i < unique.length; i++) {
+    if (unique[i].length >= 6) {
+      sixOrMore.push(unique[i]);
+    }
+  }
+  
+  let newList = sixOrMore;
+  makeList = (array) => {
+    let list = document.createElement('p');
+    for (var i = 0; i < array.length; i++) {
+      var item = document.createElement('span');
+      item.appendChild(document.createTextNode(array[i].toLowerCase() + ', '));
+      list.appendChild(item);
+    }
+    return list;
+  };
+  document.getElementById('result1').appendChild(makeList(newList));
+  const target = document.getElementById('result1').children[0].lastChild.innerHTML;
+  const lastWord = target.replace(/[^a-zA-Z]/g, '');
+  document.getElementById('result1').children[0].lastChild.innerHTML = lastWord;
+
+  sort = () => {
+    newList.sort();
+    document.getElementById('result2').appendChild(makeList(newList));
+    const target = document.getElementById('result2').children[0].lastChild.innerHTML;
+    const lastWord = target.replace(/[^a-zA-Z]/g, '');
+    document.getElementById('result2').children[0].lastChild.innerHTML = lastWord;
+  };
+  sort();
+
+  capitalize = () => {
+    newList.sort();
+    document.getElementById('result3').appendChild(makeList(newList));
+    const target = document.getElementById('result3').children[0].lastChild.innerHTML;
+    const lastWord = target.replace(/[^a-zA-Z]/g, '');
+    document.getElementById('result3').children[0].lastChild.innerHTML = lastWord;
+  };
+  capitalize();
+}
+  
+getWords(lyrics);
+        </code></pre>
+      </section>
+      <a href="final.html">See the final version</a>
+    </div>
+  </body>
+  <script src="js/prism.js"></script>
+  <!-- <script src="js/scripts.js"></script> -->
+  <script src="js/script.js"></script>
+</html>

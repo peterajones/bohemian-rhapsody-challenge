@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin-bottom: 40px;
+}
+
+.container {
+  position: relative;
+  top: 20px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+/* Syntax highlighting (Prism) styles */
+.snippet-header {
+  font-family: monospace;
+  font-size: 1.2rem;
+  position: relative;
+  top: 10px;
+  text-align: right;
+}
+.left.snippet-header {
+  text-align: left;
+}
+pre.language-js {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+code.language-js {
+  white-space: pre-wrap;
+}
+/* document styling */
+section {
+  padding: 20px 0;
+}
+section h3 {
+  margin-bottom: 10px;
+}
+section p {
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+section ol {
+  text-indent: 10px;
+  margin-left: 20px;
+  line-height: 1.5;
+}
+.lyrics {
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  max-width: 640px;
+  margin-top: 10px;
+  font-size: small;
+}
+.strof {
+  margin-bottom: 20px;
+}
+p.credits {
+  color: #a1a1a1;
+}
+div.results {
+  background-color: #f4f4f4;
+}
+div#result1,
+div#result2,
+div#result3 {
+  position: relative;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 20px;
+}
+div#result3 {
+  text-transform: capitalize;
+}
